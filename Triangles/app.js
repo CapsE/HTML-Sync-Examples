@@ -63,6 +63,8 @@ app.use(function(err, req, res, next) {
 var io = require('socket.io')(http);
 var HTMLSync = require('html-sync');
 var hs = new HTMLSync(io, {debug:true});
+var Part = HTMLSync.Part;
+var p = new Part("div");
 
 io.on('connection', function(socket){
   console.log('a user connected');
