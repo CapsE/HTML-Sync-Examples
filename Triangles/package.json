@@ -1,7 +1,7 @@
 {
-  "name": "HTML-Sync-Thousand-Stars-example",
-  "version": "1.0.0",
-  "description": "Example for the HTML-Sync library",
+  "name": "HTML-Sync-example",
+  "version": "0.5.0",
+  "description": "Examples for the HTML-Sync library",
   "main": "app.js",
   "scripts": {
     "start": "node app",
@@ -33,5 +33,8 @@
     "serve-favicon": "~2.2.1",
     "socket.io": "*",
     "html-sync": "*"
+  },
+  "engines": {
+    "node": "4.1.1"
   }
 }
