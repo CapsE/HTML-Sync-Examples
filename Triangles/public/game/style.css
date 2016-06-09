@@ -1,0 +1,48 @@
+#wrapper{
+    margin:200px auto;
+    width:1074px;
+    text-align: center;
+}
+
+#storage{
+    border:solid;
+    width:408px;
+    height:408px;
+    margin: 0px 10px;
+    float:left;
+}
+
+#next{
+    border:solid;
+    width:100px;
+    height:100px;
+    float:left;
+    margin: 150px 50px
+}
+
+#board{
+    border:solid;
+    width:408px;
+    height:408px;
+    margin: 0px 10px;
+    float:left;
+}
+
+.field, .token{
+    width:100px;
+    height:100px;
+    float:left;
+}
+
+.field{
+    border:solid 1px;
+}
+
+.token{
+    margin: 1px;
+}
+
+#reset{
+    margin: 10px;
+    display:inline;
+}

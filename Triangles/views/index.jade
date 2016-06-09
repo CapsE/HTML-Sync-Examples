@@ -2,10 +2,17 @@
    Created by Lars on 21.02.2016.
 
 script(src="https://code.jquery.com/jquery-2.2.3.min.js")
+script(src="/timbre.dev.js")
+script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js")
 script(src="/html-sync.min.js")
 link(href="/style.css" rel="stylesheet" type="text/css")
 
 body
+    div#room(style="display:none;")
+        |#{seed || "/"}
 
 script.
-    var htmlSync = new HTMLSync({debug:false});
+    var htmlSync = new HTMLSync({
+        room: $("#room").html(),
+        debug:false
+    });

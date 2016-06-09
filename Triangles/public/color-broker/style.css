@@ -1,0 +1,44 @@
+html,body{
+    font-family: Calibri;
+}
+
+#player-wrapper{
+    position:fixed;
+    top:50px;
+    left:5px;
+    font-size: 2em;
+}
+
+.player{
+    clear:both;
+}
+
+.color{
+    width:75px;
+    height:75px;
+    margin:2px;
+    float:left;
+    color:white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tiny-color{
+    width:35px;
+    height:35px;
+    float:left;
+    color:white;
+    text-align: center;
+    font-size: 0.5em;
+}
+
+#storage{
+    width: 237px;
+    margin: 50px auto;
+}
+
+#my-storage{
+    position:fixed;
+    top:50px;
+    right:5px;
+}

@@ -1,0 +1,16 @@
+//
+   Created by Lars on 29.04.2016.
+
+script(src="https://code.jquery.com/jquery-2.2.3.min.js")
+script(src="http://code.interactjs.io/v1.2.6/interact.min.js")
+script(src="/html-sync.min.js")
+script(src="/color-broker/color-broker.js")
+link(href="/color-broker/style.css" rel="stylesheet" type="text/css")
+body
+    div#wrapper
+        div#storage
+        div#player-wrapper
+            input#nameInput(placeholder="Name")
+            button#chooseNameBtn
+                | join
+        div#my-storage

@@ -3,12 +3,20 @@ var path = require('path');
 var logger = require('morgan');
 var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
+var HTMLSync = require('html-sync');
 
-var routes = require('./routes/index')(express);
+
 var app = express();
 app.set('port', process.env.PORT || 3000);
 
 var http = require('http').createServer(app);
+
+var io = require('socket.io')(http);
+var hs = new HTMLSync(io, {debug:false});
+
+var routes = require('./routes/index')(express, HTMLSync);
+var connectFour = require('./routes/connect-four')(express, HTMLSync);
+var colorBroker = require('./routes/color-broker')(express, HTMLSync);
 
 http.listen(process.env.PORT || 3000, function(){
   console.log("listening on " + (process.env.PORT || 3000));
@@ -26,7 +34,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
-app.use('/', routes);
+app.use('/tri', routes);
+app.use('/game', connectFour);
+app.use('/color-broker', colorBroker);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,12 +69,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-var io = require('socket.io')(http);
-var HTMLSync = require('html-sync');
-var hs = new HTMLSync(io, {debug:true});
-var Part = HTMLSync.Part;
-var p = new Part("div");
 
 io.on('connection', function(socket){
   console.log('a user connected');
