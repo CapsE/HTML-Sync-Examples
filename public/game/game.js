@@ -4,7 +4,7 @@
 
 var htmlSync = new HTMLSync({
     room: "game",
-    debug:true
+    debug:false
 });
 
 interact('.token')
@@ -17,6 +17,24 @@ interact('.token')
         },
         // enable autoScroll
         autoScroll: true,
+
+        onstart: function(e){
+            var target = e.target;
+            var offset = $(target).offset();
+            console.log(offset);
+            // keep the dragged position in the data-x/data-y attributes
+            var x = e.clientX0 - (e.clientX0 - offset.left);
+            var y = e.clientY0 - (e.clientY0 - offset.top);
+
+            // translate the element
+            target.style.webkitTransform =
+                target.style.transform =
+                    'translate(' + x + 'px, ' + y + 'px)';
+
+            // update the posiion attributes
+            target.setAttribute('data-x', x);
+            target.setAttribute('data-y', y);
+        },
 
         // call this function on every dragmove event
         onmove: dragMoveListener,
@@ -33,7 +51,7 @@ interact('.field').dropzone({
        var y = posField.top;
        element.update({
            style:{
-               transform: "translate(" + x + "px, " +y + "px)",
+               transform: "translate(" + x + "px, " + y + "px)",
                position: "fixed",
                top:"0px",
                left:"0px",
@@ -46,6 +64,7 @@ interact('.field').dropzone({
    }
 });
 
+var sent = false;
 function dragMoveListener (event) {
     var target = event.target,
     // keep the dragged position in the data-x/data-y attributes
@@ -60,6 +79,24 @@ function dragMoveListener (event) {
     // update the posiion attributes
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
+    if(!sent){
+        sent = true;
+        HTMLSync.parts[target.id].update({
+            style:{
+                transform: "translate(" + x + "px, " + y + "px)",
+                position: "fixed",
+                top:"0px",
+                left:"0px",
+            },
+            data:{
+                x: x,
+                y: y,
+            }
+        }, true);
+        setTimeout(function(){
+            sent = false;
+        }, 100);
+    }
 }
 
 // this is used later in the resizing and gesture demos
