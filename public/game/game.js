@@ -64,7 +64,6 @@ interact('.field').dropzone({
    }
 });
 
-var sent = false;
 function dragMoveListener (event) {
     var target = event.target,
     // keep the dragged position in the data-x/data-y attributes
@@ -79,24 +78,19 @@ function dragMoveListener (event) {
     // update the posiion attributes
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
-    if(!sent){
-        sent = true;
-        HTMLSync.parts[target.id].update({
-            style:{
-                transform: "translate(" + x + "px, " + y + "px)",
-                position: "fixed",
-                top:"0px",
-                left:"0px",
-            },
-            data:{
-                x: x,
-                y: y,
-            }
-        }, true);
-        setTimeout(function(){
-            sent = false;
-        }, 100);
-    }
+
+    HTMLSync.parts[target.id].update({
+        style:{
+            transform: "translate(" + x + "px, " + y + "px)",
+            position: "fixed",
+            top:"0px",
+            left:"0px",
+        },
+        data:{
+            x: x,
+            y: y,
+        }
+    }, true);
 }
 
 // this is used later in the resizing and gesture demos
