@@ -13,9 +13,9 @@
 }
 
 #next{
+    width:98px;
+    height:98px;
     border:solid;
-    width:100px;
-    height:100px;
     float:left;
     margin: 150px 50px
 }

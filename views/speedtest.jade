@@ -1,0 +1,56 @@
+//
+   Created by Lars on 10.06.2016.
+
+script(src="https://code.jquery.com/jquery-2.2.3.min.js")
+script(src="http://code.interactjs.io/v1.2.6/interact.min.js")
+script(src="/html-sync.min.js")
+
+body#main
+    h1
+        | Speedtest
+
+script.
+    var htmlSync = new HTMLSync({
+        room: "speedtest",
+        debug: true
+    });
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    for(var i = 0; i < 25; i++){
+        var tester = new Part("div");
+        tester.parent = "main";
+        tester.attr({
+            className: "tester",
+        });
+
+        tester.setStyle("backgroundColor", getRandomColor());
+
+        htmlSync.add(tester);
+
+        setInterval(function () {
+            var x = parseInt(Math.random() * 1920);
+            var y = parseInt(Math.random() * 1080);
+            tester.update({
+                style: {
+                    transform: "translate(" + x + "px," + y + "px)"
+                }
+            }, true);
+        }, 500);
+    }
+
+style.
+    .tester{
+        position: fixed;
+        top: 0px;
+        left:0px;
+        width:20px;
+        height:20px;
+    }
