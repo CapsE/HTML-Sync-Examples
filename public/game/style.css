@@ -42,6 +42,10 @@
     margin: 1px;
 }
 
+.token.sync-locked{
+    opacity:0.5;
+}
+
 #reset{
     margin: 10px;
     display:inline;

@@ -18,6 +18,12 @@ module.exports = function(express, HTMLSync) {
                 });
                 part.room = "game";
                 part.parent = "storage";
+                part.on("lock", function(e){
+                    console.log(e, "locked the tokene");
+                });
+                part.on("unlock", function(){
+                   console.log("Token is now unlocked");
+                });
                 HTMLSync.add(part);
             }
         }
