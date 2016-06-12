@@ -1,0 +1,42 @@
+.field{
+    width:75px;
+    height:75px;
+    float:left;
+}
+
+.field.white{
+    background:white;
+}
+
+.field.black{
+    background:grey;
+}
+
+#storage{
+    width:80px;
+    margin-top:100px;
+}
+
+.stash{
+    width:65px;
+    height:65px;
+    margin:5px;
+}
+
+#board{
+    position:fixed;
+    top:100px;
+    left:200px;
+    width: calc(75*8px);
+    height: calc(75*8px);
+    border: solid;
+}
+
+.token{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:65px;
+    height:65px;
+    margin:5px;
+}

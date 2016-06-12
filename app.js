@@ -16,7 +16,7 @@ var hs = new HTMLSync(io, {debug:false});
 
 var routes = require('./routes/index')(express, HTMLSync);
 var connectFour = require('./routes/connect-four')(express, HTMLSync);
-var colorBroker = require('./routes/color-broker')(express, HTMLSync);
+var dame = require('./routes/dame')(express, HTMLSync);
 
 http.listen(process.env.PORT || 3000, function(){
   console.log("listening on " + (process.env.PORT || 3000));
@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/tri', routes);
 app.use('/game', connectFour);
-app.use('/color-broker', colorBroker);
+app.use('/dame', dame);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
