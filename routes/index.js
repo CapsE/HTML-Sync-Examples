@@ -48,6 +48,7 @@ module.exports = function(express,HTMLSync){
 
   router.get("/:seed", function(req, res) {
     if(!HTMLSync.roomExists(req.params.seed)){
+      HTMLSync.rooms[req.params.seed] = new HTMLSync.Room(req.params.seed);
       generateField(req.params.seed);
     }
 
@@ -126,6 +127,7 @@ module.exports = function(express,HTMLSync){
             left: x * 50 -50 + "px",
           });
         }
+        p.parent = "wrapper";
         HTMLSync.add(p);
       }
     }
