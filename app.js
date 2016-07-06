@@ -15,6 +15,7 @@ var io = require('socket.io')(http);
 var hs = new HTMLSync(io, {debug:false});
 
 var routes = require('./routes/index')(express, HTMLSync);
+var tri = require('./routes/tri')(express, HTMLSync);
 var connectFour = require('./routes/connect-four')(express, HTMLSync);
 var dame = require('./routes/dame')(express, HTMLSync);
 
@@ -34,7 +35,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
-app.use('/tri', routes);
+app.use("/", routes);
+app.use('/tri', tri);
 app.use('/game', connectFour);
 app.use('/dame', dame);
 

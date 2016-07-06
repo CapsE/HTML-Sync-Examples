@@ -1,19 +1,39 @@
 //
    Created by Lars on 21.02.2016.
 
-script(src="https://code.jquery.com/jquery-2.2.3.min.js")
-script(src="/timbre.dev.js")
-script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js")
-script(src="/html-sync.min.js")
-link(href="/style.css" rel="stylesheet" type="text/css")
+extends layout
 
-body
-    div#room(style="display:none;")
-        |#{seed || "/"}
-    div#wrapper
+block content
+    section.centered.markdown.
+        # Hallo Welt
+        Dies ist ein Markdown Text. Ich hoffe er funktioniert.
+        ```js
+        var hello = "Hello World";
+        ```
+        Was passiert eigentlich
 
-script.
-    var htmlSync = new HTMLSync({
-        room: $("#room").html(),
-        debug:false
-    });
+        Wenn man Einen Absastz setzt?    Oder sogar zwei?
+    section.one-one-one
+        div
+            img(src="example.png")
+            | Easy to use
+        div
+            img(src="example.png")
+            | High Performance
+        div
+            img(src="example.png")
+            | Flexible
+    section.two-one
+        div.markdown.
+            # What are you waiting for?
+            Try out HTML-Sync now. It's completely free for testing and private use. You already tried it and want to buy
+            it for your company? Check out our licences!
+        div
+            img(src="example.png")
+
+
+    script.
+        var htmlSync = new HTMLSync({
+            room: "/",
+            debug:false
+        });

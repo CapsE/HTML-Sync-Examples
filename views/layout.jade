@@ -1,0 +1,26 @@
+//
+   Created by Lars on 06.07.2016.
+
+doctype html
+
+block includes
+    script(src="https://code.jquery.com/jquery-2.2.3.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.3/TweenMax.min.js")
+    script(src="/js/marked.min.js")
+    script(src="/html-sync.min.js")
+    script(src="/js/layout.js")
+    link(href="/style.css" rel="stylesheet" type="text/css")
+
+block header
+    header
+        img.main-image(src="/header.png")
+        div#navigation
+            p
+                | Home
+            p
+                | Tutorials
+            p
+                | Documentation
+body
+    div#page
+        block content

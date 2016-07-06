@@ -1,0 +1,133 @@
+html,body{
+    margin:0px;
+    padding:0px;
+    background: url("background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Verdana", Verdana, sans-serif;
+}
+
+div{
+    vertical-align: text-top;
+}
+
+#page{
+    width:980px;
+    background-color:white;
+    margin:0 auto;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+header{
+    display:block;
+    width:980px;
+    margin:0 auto;
+
+    .main-image{
+        margin: 30px 0 0 0;
+    }
+
+    #navigation{
+        position:fixed;
+        left: ~"calc((100% - 980px) / 2)";
+        top:0px;
+        height: 35px;
+        width:980px;
+        background-color:white;
+        padding:8px;
+        box-sizing:border-box;
+        clear:both;
+        border-bottom: 1px solid lightgrey;
+
+        p{
+            float:left;
+            margin: 0 10px 0 0;
+        }
+    }
+}
+
+section{
+    margin: 30px 0;
+    &.centered{
+        text-align: center;
+    }
+
+    &.one-one-one{
+
+        div{
+            display:inline-block;
+            width:30%;
+            margin: 0 1.5%;
+
+            *{
+                max-width:100%;
+            }
+        }
+    }
+
+    &.one-two{
+        div{
+            display:inline-block;
+        }
+        div:nth-child(0){
+            width:33%;
+
+            *{
+                max-width:100%;
+            }
+        }
+
+        div:nth-child(1){
+            width:66%;
+
+            *{
+                max-width:100%;
+            }
+        }
+    }
+
+    &.two-one{
+        div{
+            display:inline-block;
+        }
+        div:nth-child(1){
+            width:66%;
+
+            *{
+                max-width:100%;
+            }
+        }
+
+        div:nth-child(2){
+            width:33%;
+
+            *{
+                max-width:100%;
+            }
+        }
+    }
+}
+
+#wrapper{
+    width: 50%;
+    position: fixed;
+    top: 0px;
+    left: 33%;
+    overflow: hidden;
+}
+
+.triangle{
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 50px 80px 50px;
+    animation-name: fade-in;
+    animation-duration: 1s;
+}
+
+@keyframes fade-in {
+    from{opacity:0;}
+    to{opacity:1;}
+}
