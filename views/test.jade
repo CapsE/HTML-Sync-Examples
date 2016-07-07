@@ -1,0 +1,20 @@
+//
+   Created by Lars on 07.07.2016.
+
+script(src="https://code.jquery.com/jquery-2.2.3.min.js")
+
+div#string
+    |#{img}
+canvas#canvas(width="200" height="200")
+
+script.
+    var json = JSON.parse($("#string").html());
+    var string = json.string;
+    var ctx = $("#canvas")[0].getContext("2d");
+
+    for(var i = 0; i < string.length; i += 2){
+        var v = string.substr(i,2);
+        var color = "#" + v + v + v;
+        ctx.fillStyle = color;
+        ctx.fillRect(((i/2) % json.x), parseInt(i/2/json.y), 1, 1);
+    }
