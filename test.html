@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script src="html-sync.min.js"></script>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <div id="wrapper"></div>
+    </body>
+    <script>
+        var htmlSync = new HTMLSync({
+            debug:true,
+            url: "ws://127.0.0.1:3000",
+            room: "/"
+        });
+    </script>
+</html>
